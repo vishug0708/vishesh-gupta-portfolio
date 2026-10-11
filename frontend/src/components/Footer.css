@@ -1,0 +1,168 @@
+
+.site-footer {
+  width: 100%;
+  min-height: 90px;
+  padding: 20px 5%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #080a0c;
+  border-top: 1px solid #252c32;
+  color: #f5f6f7;
+}
+
+.footer-logo {
+  flex-shrink: 0;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.footer-logo span {
+  color: #9baab5;
+}
+
+.footer-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.footer-identity strong {
+  font-size: 11px;
+}
+
+.footer-identity span {
+  color: #9da7af;
+  font-size: 9px;
+}
+
+.footer-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 17px;
+  margin: 0 auto;
+}
+
+.footer-navigation a {
+  color: #b5bec5;
+  font-size: 10px;
+  transition: color 0.2s ease;
+}
+
+.footer-navigation a:hover {
+  color: #ffffff;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-socials a {
+  display: grid;
+  place-items: center;
+  color: #c6cdd2;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-socials a:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.footer-socials svg {
+  width: 15px;
+  height: 15px;
+}
+
+.footer-copyright {
+  color: #87919a;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.footer-back-top {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid #424c54;
+  border-radius: 50%;
+  background: transparent;
+  color: #f5f6f7;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.footer-back-top:hover {
+  background: #f5f6f7;
+  color: #080a0c;
+}
+
+@media (max-width: 1000px) {
+  .site-footer {
+    flex-wrap: wrap;
+  }
+
+  .footer-navigation {
+    order: 4;
+    width: 100%;
+    margin: 10px 0 0;
+    justify-content: flex-start;
+  }
+
+  .footer-socials {
+    margin-left: auto;
+  }
+
+  .footer-copyright {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 22px 5%;
+    gap: 14px;
+  }
+
+  .footer-logo {
+    font-size: 24px;
+  }
+
+  .footer-identity strong {
+    font-size: 10px;
+  }
+
+  .footer-socials {
+    width: 100%;
+    margin: 0;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .footer-navigation {
+    gap: 16px;
+  }
+
+  .footer-copyright {
+    margin: 0;
+    flex: 1;
+    white-space: normal;
+    line-height: 1.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-navigation a,
+  .footer-socials a,
+  .footer-back-top {
+    transition: none;
+  }
+}

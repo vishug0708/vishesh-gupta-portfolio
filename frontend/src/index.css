@@ -1,0 +1,39 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #080a0c;
+  color: #f5f6f7;
+  font-family: "DM Sans", sans-serif;
+}
+
+main {
+  display: block;
+  width: 100%;
+}
+
+.page-section {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 66px);
+  padding: 80px 7%;
+  overflow: hidden;
+  border-bottom: 1px solid #252c32;
+  scroll-margin-top: 66px;
+}
+
+@media (max-width: 700px) {
+  .page-section {
+    min-height: calc(100svh - 60px);
+    padding: 60px 5%;
+  }
+}
