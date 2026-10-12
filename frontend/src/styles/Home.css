@@ -420,5 +420,7 @@
     animation: none;
   }
 
-  .hero-button,
+  .hero-button {
+    transition: none;
+  }
 }
