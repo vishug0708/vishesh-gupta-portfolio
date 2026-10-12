@@ -55,7 +55,7 @@ export default function About() {
           </h2>
 
           <p className="about-intro">
-            I'm <strong>Vishu Gupta</strong>, a BCA (Hons) student
+            I'm <strong>Vishesh Gupta</strong>, a BCA (Hons) student
             interested in full-stack web development, backend systems,
             interactive interfaces, and solving real-world problems
             through software.
@@ -98,7 +98,7 @@ export default function About() {
             <img
               className="about-profile-image"
               src="/images/profile-image.png"
-              alt="Vishu Gupta portrait"
+              alt="Vishesh Gupta portrait"
             />
 
             <div className="about-portrait-shade" />
@@ -109,7 +109,7 @@ export default function About() {
             </div>
 
             <div className="about-portrait-bottom">
-              <span>VISHU GUPTA</span>
+              <span>VISHESH GUPTA</span>
               <span>DEVELOPER</span>
             </div>
           </div>
@@ -135,7 +135,7 @@ export default function About() {
 
             <span className="about-card-divider" />
 
-            <p>Vishu Gupta</p>
+            <p>Vishesh Gupta</p>
           </article>
 
           <article className="about-learning-card">

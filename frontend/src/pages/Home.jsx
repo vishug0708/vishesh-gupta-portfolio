@@ -12,7 +12,7 @@ export default function Home() {
       <div className="hero-copy">
         <p className="hero-eyebrow">Hi, I'm</p>
 
-        <h1>Vishu Gupta</h1>
+        <h1>Vishesh Gupta</h1>
 
         <h2>
           Building Digital
