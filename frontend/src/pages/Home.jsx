@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowDown, ArrowRight, MessageCircle, Play } from "lucide-react";
+import { ArrowDown, ArrowRight, Play } from "lucide-react";
 import "../styles/Home.css";
 
 export default function Home() {
@@ -40,7 +40,6 @@ export default function Home() {
 
           <a href="#contact" className="hero-button hero-button-outline">
             Contact Me
-            <MessageCircle size={17} />
           </a>
         </div>
       </div>
@@ -51,14 +50,6 @@ export default function Home() {
         </span>
         <span>Scroll to explore</span>
       </a>
-
-      <div className="hero-side-words" aria-hidden="true">
-        <span>Code</span>
-        <span>Design</span>
-        <span>Develop</span>
-        <span>Improve</span>
-        <span>Repeat</span>
-      </div>
 
       <a href="#projects" className="hero-watch">
         <span className="hero-play">

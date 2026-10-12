@@ -79,6 +79,29 @@
   line-height: 1.9;
 }
 
+.hero-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 25px;
+}
+
+.hero-tech-tags span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 31px;
+  padding: 0 14px;
+  border: 1px solid rgba(215, 228, 239, 0.24);
+  border-radius: 999px;
+  background: rgba(17, 24, 30, 0.72);
+  color: #f0f4f7;
+  font-size: 11px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+}
+
 .hero-actions {
   display: flex;
   align-items: center;
@@ -230,62 +253,58 @@
   .home-page {
     min-height: 100svh;
     min-height: 100dvh;
-    align-items: center;
-    padding: 100px 7% 76px;
+    align-items: flex-start;
+    padding: 100px 6% 76px;
   }
 
   .hero-background-image {
-    background-position: 62% center;
+    background-position: 64% center;
     background-size: cover;
   }
 
   .hero-overlay {
     background:
-      linear-gradient(90deg, rgba(3, 5, 7, 0.94) 0%, rgba(3, 5, 7, 0.79) 42%, rgba(3, 5, 7, 0.22) 100%),
-      linear-gradient(0deg, rgba(3, 5, 7, 0.82) 0%, transparent 36%, rgba(3, 5, 7, 0.08) 100%);
+      linear-gradient(90deg, rgba(3, 5, 7, 0.96) 0%, rgba(3, 5, 7, 0.84) 44%, rgba(3, 5, 7, 0.30) 100%),
+      linear-gradient(0deg, rgba(3, 5, 7, 0.82) 0%, transparent 42%, rgba(3, 5, 7, 0.10) 100%);
   }
 
   .hero-copy {
     width: 100%;
     max-width: 100%;
-    margin-top: 4px;
-    animation: hero-enter 0.8s ease both;
+    margin-top: clamp(12px, 3vh, 26px);
   }
 
   .hero-eyebrow {
-    margin: 0 0 12px;
+    margin: 0 0 10px;
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1.8px;
     text-transform: uppercase;
   }
 
   .hero-copy h1 {
-    max-width: 78%;
-    margin: 0 0 14px;
-    font-size: clamp(42px, 11.5vw, 66px);
-    line-height: 0.96;
-    letter-spacing: -2.4px;
+    max-width: 82%;
+    margin: 0 0 12px;
+    font-size: clamp(40px, 11vw, 58px);
+    line-height: 0.98;
+    letter-spacing: -2.3px;
     white-space: normal;
     overflow-wrap: normal;
-    text-shadow: 0 0 16px rgba(179, 220, 255, 0.35);
+    text-shadow: 0 0 16px rgba(179, 220, 255, 0.28);
   }
 
   .hero-copy h2 {
-    max-width: 86%;
-    margin: 0 0 15px;
-    font-size: clamp(27px, 7.5vw, 40px);
-    font-weight: 400;
+    max-width: 88%;
+    margin: 0 0 13px;
+    font-size: clamp(26px, 7.2vw, 37px);
     line-height: 1.12;
-    letter-spacing: -0.9px;
+    letter-spacing: -0.8px;
   }
 
   .hero-description {
-    max-width: 78%;
-    margin: 0 0 18px;
-    color: #d3d8dc;
-    font-size: clamp(11px, 3.1vw, 13px);
-    line-height: 1.55;
+    max-width: 82%;
+    margin: 0 0 17px;
+    font-size: clamp(11px, 3vw, 13px);
+    line-height: 1.6;
   }
 
   .desktop-break {
@@ -296,22 +315,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 7px;
-    margin: 0 0 22px;
+    margin: 0 0 20px;
   }
 
   .hero-tech-tags span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 29px;
-    padding: 0 12px;
-    border: 1px solid rgba(215, 228, 239, 0.24);
-    border-radius: 999px;
-    background: rgba(17, 24, 30, 0.72);
-    color: #f0f4f7;
+    min-height: 28px;
+    padding: 0 11px;
     font-size: 10px;
-    font-weight: 600;
-    backdrop-filter: blur(8px);
   }
 
   .hero-actions {
@@ -324,58 +334,27 @@
 
   .hero-button {
     width: 100%;
-    min-height: 46px;
-    padding: 0 17px;
-    gap: 10px;
-    border-radius: 999px;
-    font-size: 12px;
+    min-height: 44px;
+    padding: 0 15px;
+    gap: 9px;
+    font-size: 11px;
   }
 
-  .hero-button-light {
-    box-shadow: 0 0 18px rgba(215, 235, 255, 0.2);
+  .hero-button svg {
+    width: 16px;
+    height: 16px;
   }
 
   .hero-button-outline {
     min-width: 0;
-    border-color: rgba(226, 234, 240, 0.68);
+    border-color: rgba(226, 234, 240, 0.7);
     background: rgba(5, 8, 10, 0.55);
   }
 
-  .hero-side-words {
-    position: absolute;
-    top: 28%;
-    right: 5%;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 12px 0 12px 10px;
-    border-left: 1px solid rgba(120, 200, 255, 0.5);
-    color: rgba(245, 248, 250, 0.92);
-    font-size: 9px;
-    line-height: 1.25;
-    text-shadow: 0 2px 8px #000;
-  }
-
-  .hero-side-words::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 24px;
-    height: 2px;
-    background: #38bdf8;
-    content: "";
-    transform: translateX(-1px);
-  }
-
   .hero-scroll {
-    position: absolute;
     left: 50%;
-    bottom: 18px;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    gap: 9px;
+    bottom: 16px;
+    gap: 8px;
     font-size: 10px;
     white-space: nowrap;
     transform: translateX(-50%);
@@ -383,8 +362,7 @@
 
   .hero-scroll-icon {
     width: 27px;
-    height: 35px;
-    border: 1px solid #d6e0e7;
+    height: 34px;
     border-radius: 14px;
   }
 
@@ -400,43 +378,41 @@
 
 @media (max-width: 420px) {
   .home-page {
-    padding: 94px 6% 72px;
+    padding: 94px 5% 70px;
   }
 
   .hero-background-image {
-    background-position: 64% center;
+    background-position: 66% center;
   }
 
-  .hero-overlay {
-    background:
-      linear-gradient(90deg, rgba(3, 5, 7, 0.96) 0%, rgba(3, 5, 7, 0.84) 48%, rgba(3, 5, 7, 0.25) 100%),
-      linear-gradient(0deg, rgba(3, 5, 7, 0.78) 0%, transparent 38%, rgba(3, 5, 7, 0.08) 100%);
+  .hero-copy {
+    margin-top: 10px;
   }
 
   .hero-copy h1 {
     max-width: 80%;
-    font-size: clamp(40px, 11vw, 48px);
+    font-size: clamp(38px, 10.8vw, 47px);
     letter-spacing: -2px;
   }
 
   .hero-copy h2 {
     max-width: 88%;
-    font-size: clamp(25px, 7.1vw, 30px);
+    font-size: clamp(25px, 7vw, 30px);
   }
 
   .hero-description {
-    max-width: 78%;
+    max-width: 82%;
     font-size: 11px;
   }
 
   .hero-tech-tags {
     gap: 6px;
-    margin-bottom: 18px;
+    margin-bottom: 17px;
   }
 
   .hero-tech-tags span {
     min-height: 27px;
-    padding: 0 10px;
+    padding: 0 9px;
     font-size: 9px;
   }
 
@@ -445,26 +421,18 @@
   }
 
   .hero-button {
-    min-height: 43px;
+    min-height: 42px;
     font-size: 11px;
-  }
-
-  .hero-side-words {
-    right: 4%;
-    top: 30%;
-    font-size: 8px;
-    gap: 4px;
   }
 }
 
 @media (max-width: 360px) {
   .home-page {
     padding-top: 88px;
-    padding-bottom: 68px;
   }
 
   .hero-copy h1 {
-    font-size: 37px;
+    font-size: 36px;
   }
 
   .hero-copy h2 {
@@ -472,17 +440,17 @@
   }
 
   .hero-description {
-    max-width: 82%;
+    max-width: 86%;
     font-size: 10px;
-  }
-
-  .hero-side-words {
-    right: 3%;
-    font-size: 7px;
   }
 
   .hero-tech-tags span {
     padding: 0 8px;
+  }
+
+  .hero-button {
+    padding: 0 10px;
+    font-size: 10px;
   }
 }
 
