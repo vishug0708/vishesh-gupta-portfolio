@@ -65,18 +65,6 @@ export default function Home() {
         <span>Scroll to explore</span>
       </a>
 
-      <button
-        type="button"
-        className="hero-watch"
-        onClick={() => setIntroOpen(true)}
-        aria-label="Watch introduction video"
-      >
-        <span className="hero-play">
-          <Play size={22} fill="currentColor" />
-        </span>
-        <span>Watch intro</span>
-      </button>
-
       {introOpen && (
         <div
           className="hero-video-modal"

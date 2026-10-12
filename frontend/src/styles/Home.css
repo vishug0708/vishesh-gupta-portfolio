@@ -148,36 +148,8 @@
   border-radius: 50%;
 }
 
-.hero-watch {
-  position: absolute;
-  right: 5%;
-  bottom: 8%;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none !important;
-}
 
-.hero-play {
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  width: 65px;
-  height: 65px;
-  border: 1px solid #8e969b;
-  border-radius: 50%;
-  background: rgba(21, 25, 28, 0.75);
-  transition: transform 0.2s ease, background 0.2s ease;
-}
 
-.hero-watch:hover .hero-play {
-  transform: scale(1.06);
-  background: #30363a;
-}
 
 @keyframes hero-enter {
   from {
@@ -316,21 +288,6 @@
     width: 34px;
     height: 34px;
   }
-
-  .hero-watch {
-    right: 6%;
-    bottom: 83px;
-    gap: 11px;
-    font-size: 11px;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-  }
-
-  .hero-play {
-    width: 44px;
-    height: 44px;
-  }
 }
 
 @media (max-width: 420px) {
@@ -372,11 +329,6 @@
     justify-content: center;
   }
 
-  .hero-watch {
-    right: 5%;
-    bottom: 76px;
-  }
-
   .hero-scroll {
     bottom: 18px;
   }
@@ -399,23 +351,11 @@
   .hero-description {
     font-size: 11px;
   }
-
-  .hero-watch {
-    bottom: 73px;
-  }
 }
 
 /* Shared intro video dialog */
 .hero-button-outline {
   font-family: inherit;
-  cursor: pointer;
-}
-
-.hero-watch {
-  font-family: inherit;
-  padding: 0;
-  border: 0;
-  background: transparent;
   cursor: pointer;
 }
 
@@ -481,7 +421,4 @@
   }
 
   .hero-button,
-  .hero-play {
-    transition: none;
-  }
 }
