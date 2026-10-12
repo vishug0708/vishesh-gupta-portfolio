@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import "./Navbar.css";
 
@@ -13,10 +13,32 @@ const navLinks = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [onHome, setOnHome] = useState(true);
+
+  useEffect(() => {
+    const updateNavbar = () => {
+      const home = document.getElementById("home");
+      if (!home) {
+        setOnHome(false);
+        return;
+      }
+
+      const homeBottom = home.getBoundingClientRect().bottom;
+      setOnHome(window.scrollY < 40 && homeBottom > 100);
+    };
+
+    updateNavbar();
+    window.addEventListener("scroll", updateNavbar, { passive: true });
+    window.addEventListener("resize", updateNavbar);
+
+    return () => {
+      window.removeEventListener("scroll", updateNavbar);
+      window.removeEventListener("resize", updateNavbar);
+    };
+  }, []);
 
   const scrollToSection = (id) => {
     const target = document.getElementById(id);
-
     if (!target) {
       setMenuOpen(false);
       return;
@@ -38,7 +60,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="site-navbar">
+    <header className={`site-navbar ${onHome ? "site-navbar-home" : "site-navbar-scrolled"}`}>
       <a
         href="#home"
         className="navbar-logo"

@@ -10,11 +10,24 @@
   grid-template-columns: minmax(90px, 1fr) auto minmax(120px, 1fr);
   align-items: center;
   gap: clamp(14px, 2vw, 28px);
-  background: rgba(7, 9, 11, 0.78);
+  background: rgba(7, 9, 11, 0.82);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    backdrop-filter 0.3s ease;
+}
+
+.site-navbar.site-navbar-home {
+  background: linear-gradient(180deg, rgba(4, 6, 8, 0.58), rgba(4, 6, 8, 0.08));
+  border-bottom-color: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .site-navbar a,
@@ -50,10 +63,9 @@
 }
 
 .navbar-links a {
-  position: relative;
   display: inline-block;
   padding: 10px 0;
-  color: #d7dce0;
+  color: #e1e4e7;
   font-size: 13px;
   font-weight: 500;
   white-space: nowrap;
@@ -167,11 +179,6 @@
     font-size: 14px;
   }
 
-  .navbar-links a::after {
-    display: none;
-    content: none;
-  }
-
   .navbar-cta {
     min-height: 39px;
     padding: 0 13px;
@@ -185,6 +192,14 @@
 
   .navbar-menu-button {
     display: inline-flex;
+  }
+
+  .site-navbar.site-navbar-home {
+    background: linear-gradient(180deg, rgba(4, 6, 8, 0.55), transparent);
+  }
+
+  .site-navbar.site-navbar-home:has(.navbar-links-open) {
+    background: rgba(7, 9, 11, 0.97);
   }
 }
 
@@ -204,6 +219,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .site-navbar,
   .navbar-links a,
   .navbar-cta {
     transition: none;
