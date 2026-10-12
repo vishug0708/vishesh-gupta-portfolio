@@ -1,6 +1,5 @@
-
 import React from "react";
-import { ArrowUp, ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUp, Mail } from "lucide-react";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import "./Footer.css";
 
@@ -13,94 +12,109 @@ const footerLinks = [
   { label: "Contact", id: "contact" },
 ];
 
+const socialLinks = [
+  {
+    label: "GitHub",
+    href: "https://github.com/",
+    icon: <FaGithub />,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/",
+    icon: <FaLinkedin />,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/",
+    icon: <FaInstagram />,
+  },
+  {
+    label: "Email",
+    href: "mailto:hostelmanagementsystem.project@gmail.com",
+    icon: <Mail />,
+  },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
-  function scrollToTop() {
+  const scrollToSection = (event, id) => {
+    event.preventDefault();
+
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    window.history.replaceState(null, "", `#${id}`);
+  };
+
+  const scrollToTop = () => {
     document.getElementById("home")?.scrollIntoView({
       behavior: "smooth",
+      block: "start",
     });
-  }
+
+    window.history.replaceState(null, "", window.location.pathname);
+  };
 
   return (
     <footer className="site-footer">
-      <a
-        href="#home"
-        className="footer-logo"
-        aria-label="Back to home"
-        onClick={(event) => {
-          event.preventDefault();
-          scrollToTop();
-        }}
-      >
-        VG<span>.</span>
-      </a>
+      <div className="footer-brand">
+        <a
+          href="#home"
+          className="footer-logo"
+          aria-label="VG - Back to home"
+          onClick={scrollToTop}
+        >
+          VG
+        </a>
 
-      <div className="footer-identity">
-        <strong>Vishu Gupta</strong>
-        <span>Full-Stack Web Developer</span>
+        <div className="footer-identity">
+          <strong>Vishu Gupta</strong>
+          <span>Full-Stack Web Developer</span>
+        </div>
       </div>
 
       <nav className="footer-navigation" aria-label="Footer navigation">
         {footerLinks.map((link) => (
-          <a key={link.id} href={`#${link.id}`}>
+          <a
+            key={link.id}
+            href={`#${link.id}`}
+            onClick={(event) => scrollToSection(event, link.id)}
+          >
             {link.label}
           </a>
         ))}
       </nav>
 
       <div className="footer-socials">
-        <a
-          href="https://github.com/"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="GitHub"
-          title="GitHub"
-        >
-          <FaGithub />
-        </a>
-
-        <a
-          href="https://linkedin.com/"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="LinkedIn"
-          title="LinkedIn"
-        >
-          <FaLinkedin />
-        </a>
-
-        <a
-          href="https://instagram.com/"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Instagram"
-          title="Instagram"
-        >
-          <FaInstagram />
-        </a>
-
-        <a
-          href="mailto:your-email@example.com"
-          aria-label="Email"
-          title="Email"
-        >
-          <Mail size={18} />
-        </a>
+        {socialLinks.map((social) => (
+          <a
+            key={social.label}
+            href={social.href}
+            target={social.label === "Email" ? undefined : "_blank"}
+            rel={social.label === "Email" ? undefined : "noreferrer"}
+            aria-label={social.label}
+            title={social.label}
+          >
+            {social.icon}
+          </a>
+        ))}
       </div>
 
-      <span className="footer-copyright">
+      <p className="footer-copyright">
         © {year} Vishu Gupta. All rights reserved.
-      </span>
+      </p>
 
       <button
         type="button"
         className="footer-back-top"
         onClick={scrollToTop}
-        aria-label="Scroll back to top"
+        aria-label="Back to top"
         title="Back to top"
       >
-        <ArrowUp size={18} />
+        <ArrowUp size={19} />
       </button>
     </footer>
   );
