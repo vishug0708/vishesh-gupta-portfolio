@@ -5,14 +5,14 @@ import "../styles/Home.css";
 export default function Home() {
   return (
     <section className="home-page" id="home">
-      <div className="hero-background-image" />
+      <div className="hero-background-image" aria-hidden="true" />
 
-      <div className="hero-overlay" />
+      <div className="hero-overlay" aria-hidden="true" />
 
       <div className="hero-copy">
         <p className="hero-eyebrow">Hi, I'm</p>
 
-        <h1>Vishesh Gupta</h1>
+        <h1>Vishu Gupta</h1>
 
         <h2>
           Building Digital
