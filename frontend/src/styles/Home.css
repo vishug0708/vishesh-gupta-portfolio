@@ -79,29 +79,6 @@
   line-height: 1.9;
 }
 
-.hero-tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 9px;
-  margin: 0 0 25px;
-}
-
-.hero-tech-tags span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 31px;
-  padding: 0 14px;
-  border: 1px solid rgba(215, 228, 239, 0.24);
-  border-radius: 999px;
-  background: rgba(17, 24, 30, 0.72);
-  color: #f0f4f7;
-  font-size: 11px;
-  font-weight: 600;
-  backdrop-filter: blur(8px);
-}
-
 .hero-actions {
   display: flex;
   align-items: center;
@@ -251,206 +228,94 @@
 
 @media (max-width: 600px) {
   .home-page {
-    min-height: 100svh;
-    min-height: 100dvh;
-    align-items: flex-start;
-    padding: 100px 6% 76px;
+    min-height: calc(100svh - 60px);
+    align-items: center;
+    padding: 100px 6% 100px;
   }
 
   .hero-background-image {
-    background-position: 64% center;
-    background-size: cover;
+    background-position: 63% center;
   }
 
   .hero-overlay {
-    background:
-      linear-gradient(90deg, rgba(3, 5, 7, 0.96) 0%, rgba(3, 5, 7, 0.84) 44%, rgba(3, 5, 7, 0.30) 100%),
-      linear-gradient(0deg, rgba(3, 5, 7, 0.82) 0%, transparent 42%, rgba(3, 5, 7, 0.10) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(5, 7, 9, 0.94) 0%,
+      rgba(5, 7, 9, 0.79) 57%,
+      rgba(5, 7, 9, 0.42) 100%
+    );
   }
 
   .hero-copy {
     width: 100%;
-    max-width: 100%;
-    margin-top: clamp(12px, 3vh, 26px);
-  }
-
-  .hero-eyebrow {
-    margin: 0 0 10px;
-    font-size: 11px;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
   }
 
   .hero-copy h1 {
-    max-width: 82%;
-    margin: 0 0 12px;
-    font-size: clamp(40px, 11vw, 58px);
-    line-height: 0.98;
-    letter-spacing: -2.3px;
+    font-size: clamp(43px, 10vw, 62px);
+    letter-spacing: -2.8px;
     white-space: normal;
-    overflow-wrap: normal;
-    text-shadow: 0 0 16px rgba(179, 220, 255, 0.28);
   }
 
   .hero-copy h2 {
-    max-width: 88%;
-    margin: 0 0 13px;
-    font-size: clamp(26px, 7.2vw, 37px);
-    line-height: 1.12;
-    letter-spacing: -0.8px;
+    font-size: clamp(28px, 7vw, 39px);
+    letter-spacing: -1px;
   }
 
   .hero-description {
-    max-width: 82%;
-    margin: 0 0 17px;
-    font-size: clamp(11px, 3vw, 13px);
-    line-height: 1.6;
+    max-width: 350px;
+    font-size: 13px;
+    line-height: 1.8;
   }
 
   .desktop-break {
     display: none;
   }
 
-  .hero-tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin: 0 0 20px;
-  }
-
-  .hero-tech-tags span {
-    min-height: 28px;
-    padding: 0 11px;
-    font-size: 10px;
-  }
-
   .hero-actions {
-    display: flex;
-    width: min(100%, 285px);
-    flex-direction: column;
-    align-items: stretch;
     gap: 10px;
   }
 
   .hero-button {
-    width: 100%;
-    min-height: 44px;
+    min-height: 46px;
     padding: 0 15px;
     gap: 9px;
     font-size: 11px;
   }
 
-  .hero-button svg {
-    width: 16px;
-    height: 16px;
-  }
-
   .hero-button-outline {
-    min-width: 0;
-    border-color: rgba(226, 234, 240, 0.7);
-    background: rgba(5, 8, 10, 0.55);
-  }
-
-  .hero-scroll {
-    left: 50%;
-    bottom: 16px;
-    gap: 8px;
-    font-size: 10px;
-    white-space: nowrap;
-    transform: translateX(-50%);
-  }
-
-  .hero-scroll-icon {
-    width: 27px;
-    height: 34px;
-    border-radius: 14px;
-  }
-
-  .hero-scroll-icon svg {
-    width: 14px;
-    height: 14px;
+    min-width: 120px;
   }
 
   .hero-watch {
-    display: none;
-  }
-}
-
-@media (max-width: 420px) {
-  .home-page {
-    padding: 94px 5% 70px;
-  }
-
-  .hero-background-image {
-    background-position: 66% center;
-  }
-
-  .hero-copy {
-    margin-top: 10px;
-  }
-
-  .hero-copy h1 {
-    max-width: 80%;
-    font-size: clamp(38px, 10.8vw, 47px);
-    letter-spacing: -2px;
-  }
-
-  .hero-copy h2 {
-    max-width: 88%;
-    font-size: clamp(25px, 7vw, 30px);
-  }
-
-  .hero-description {
-    max-width: 82%;
+    right: 6%;
+    bottom: 8%;
     font-size: 11px;
   }
 
-  .hero-tech-tags {
-    gap: 6px;
-    margin-bottom: 17px;
+  .hero-play {
+    width: 42px;
+    height: 42px;
   }
 
-  .hero-tech-tags span {
-    min-height: 27px;
-    padding: 0 9px;
-    font-size: 9px;
+  .hero-scroll {
+    left: 6%;
+    bottom: 20px;
+    font-size: 10px;
   }
 
-  .hero-actions {
-    width: min(100%, 260px);
-  }
-
-  .hero-button {
-    min-height: 42px;
-    font-size: 11px;
+  .hero-scroll-icon {
+    width: 31px;
+    height: 31px;
   }
 }
 
-@media (max-width: 360px) {
-  .home-page {
-    padding-top: 88px;
-  }
-
+@media (max-width: 380px) {
   .hero-copy h1 {
-    font-size: 36px;
-  }
-
-  .hero-copy h2 {
-    font-size: 24px;
-  }
-
-  .hero-description {
-    max-width: 86%;
-    font-size: 10px;
-  }
-
-  .hero-tech-tags span {
-    padding: 0 8px;
+    font-size: 40px;
   }
 
   .hero-button {
-    padding: 0 10px;
-    font-size: 10px;
+    padding: 0 12px;
   }
 }
 

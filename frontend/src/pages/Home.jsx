@@ -5,14 +5,14 @@ import "../styles/Home.css";
 export default function Home() {
   return (
     <section className="home-page" id="home">
-      <div className="hero-background-image" aria-hidden="true" />
+      <div className="hero-background-image" />
 
-      <div className="hero-overlay" aria-hidden="true" />
+      <div className="hero-overlay" />
 
       <div className="hero-copy">
         <p className="hero-eyebrow">Hi, I'm</p>
 
-        <h1>Vishu Gupta</h1>
+        <h1>Vishesh Gupta</h1>
 
         <h2>
           Building Digital
@@ -23,14 +23,8 @@ export default function Home() {
         <p className="hero-description">
           Full-stack developer exploring the intersection
           <br className="desktop-break" />
-          of engineering, design, and real-world problem solving.
+          of engineering, design, and interactive experiences.
         </p>
-
-        <div className="hero-tech-tags" aria-label="Core technologies">
-          <span>React.js</span>
-          <span>Node.js</span>
-          <span>MySQL</span>
-        </div>
 
         <div className="hero-actions">
           <a href="#projects" className="hero-button hero-button-light">

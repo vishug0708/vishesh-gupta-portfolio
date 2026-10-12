@@ -9,6 +9,7 @@ import {
   Download,
   Quote,
   MoveUpRight,
+  TrendingUp,
 } from "lucide-react";
 import "../styles/About.css";
 
@@ -54,19 +55,20 @@ export default function About() {
           </h2>
 
           <p className="about-intro">
-            I'm <strong>Vishu Gupta</strong>, a BCA (Hons) student
-            passionate about full-stack development, backend systems,
-            interactive interfaces, and solving real-world problems through
-            software.
+            I'm <strong>Vishesh Gupta</strong>, a BCA (Hons) student
+            interested in full-stack web development, backend systems,
+            interactive interfaces, and solving real-world problems
+            through software.
           </p>
 
           <p className="about-description">
-            I enjoy turning ideas into clean, functional, user-friendly,
-            and visually appealing digital experiences.
+            I enjoy turning ideas into functional, user-friendly, and
+            visually appealing digital experiences using React,
+            Node.js, Express.js, and MySQL.
           </p>
 
           <div className="about-facts">
-            {aboutFacts.slice(0, 2).map((fact) => {
+            {aboutFacts.map((fact) => {
               const Icon = fact.icon;
 
               return (
@@ -86,7 +88,7 @@ export default function About() {
           <div className="about-actions">
             <a href="/cv.pdf" className="about-download" download>
               Download CV
-              <Download size={17} />
+              <ArrowRight size={18} />
             </a>
           </div>
         </div>
@@ -96,7 +98,7 @@ export default function About() {
             <img
               className="about-profile-image"
               src="/images/profile-image.png"
-              alt="Vishu Gupta portrait"
+              alt="Vishesh Gupta portrait"
             />
 
             <div className="about-portrait-shade" />
@@ -107,7 +109,7 @@ export default function About() {
             </div>
 
             <div className="about-portrait-bottom">
-              <span>VISHU GUPTA</span>
+              <span>VISHESH GUPTA</span>
               <span>DEVELOPER</span>
             </div>
           </div>
