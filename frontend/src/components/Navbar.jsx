@@ -15,11 +15,25 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({
+    const target = document.getElementById(id);
+
+    if (!target) {
+      setMenuOpen(false);
+      return;
+    }
+
+    const navbarHeight =
+      document.querySelector(".site-navbar")?.getBoundingClientRect().height || 76;
+
+    const targetTop =
+      target.getBoundingClientRect().top + window.scrollY - navbarHeight;
+
+    window.scrollTo({
+      top: Math.max(0, targetTop),
       behavior: "smooth",
-      block: "start",
     });
 
+    window.history.replaceState(null, "", `#${id}`);
     setMenuOpen(false);
   };
 
@@ -28,6 +42,7 @@ export default function Navbar() {
       <a
         href="#home"
         className="navbar-logo"
+        aria-label="VG - Home"
         onClick={(event) => {
           event.preventDefault();
           scrollToSection("home");
@@ -37,6 +52,7 @@ export default function Navbar() {
       </a>
 
       <nav
+        id="main-navigation"
         className={`navbar-links ${menuOpen ? "navbar-links-open" : ""}`}
         aria-label="Main navigation"
       >
@@ -63,7 +79,7 @@ export default function Navbar() {
         }}
       >
         Let's Talk
-        <ArrowUpRight size={16} />
+        <ArrowUpRight size={16} aria-hidden="true" />
       </a>
 
       <button
@@ -71,6 +87,7 @@ export default function Navbar() {
         type="button"
         aria-label={menuOpen ? "Close navigation" : "Open navigation"}
         aria-expanded={menuOpen}
+        aria-controls="main-navigation"
         onClick={() => setMenuOpen((open) => !open)}
       >
         {menuOpen ? <X size={22} /> : <Menu size={22} />}

@@ -17,7 +17,7 @@
   --color-border: #252c35;
   --font-heading: "Space Grotesk", sans-serif;
   --font-body: "DM Sans", sans-serif;
-  --navbar-height: 66px;
+  --navbar-height: 76px;
   --container-width: 1440px;
   --page-padding: 7%;
   --transition-fast: 0.2s ease;
@@ -121,10 +121,12 @@ main {
   width: 100%;
   min-height: calc(100vh - var(--navbar-height));
   min-height: calc(100svh - var(--navbar-height));
-  padding: 80px var(--page-padding);
-  overflow: hidden;
-  border-bottom: 1px solid var(--color-border);
+  padding: clamp(28px, 4vh, 48px) var(--page-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   scroll-margin-top: var(--navbar-height);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .section-container {
@@ -209,7 +211,7 @@ main {
 
 @media (max-width: 700px) {
   :root {
-    --navbar-height: 60px;
+    --navbar-height: 64px;
     --page-padding: 5%;
   }
 
@@ -229,5 +231,20 @@ main {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-height: 800px) and (min-width: 701px) {
+  .page-section {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .page-section {
+    min-height: calc(100svh - var(--navbar-height));
+    padding: 36px var(--page-padding);
+    scroll-margin-top: var(--navbar-height);
   }
 }
