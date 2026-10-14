@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, Check, Copy, Mail, Send } from "lucide-react"
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import "../styles/Contact.css";
 
-const EMAIL = "hostelmanagementsystem.project@gmail.com";
+const EMAIL = "vishug0708@gmail.com";
 
 const socialLinks = [
   { name: "GitHub", href: "https://github.com/", label: "github.com/vishug0708", icon: FaGithub },
