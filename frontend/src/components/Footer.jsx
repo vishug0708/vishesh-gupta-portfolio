@@ -15,22 +15,22 @@ const footerLinks = [
 const socialLinks = [
   {
     label: "GitHub",
-    href: "https://github.com/",
+    href: "https://github.com/vishug0708",
     icon: <FaGithub />,
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/",
+    href: "https://www.linkedin.com/in/visheshgupta07",
     icon: <FaLinkedin />,
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/",
+    href: "https://www.instagram.com/vishug_7",
     icon: <FaInstagram />,
   },
   {
     label: "Email",
-    href: "mailto:hostelmanagementsystem.project@gmail.com",
+    href: "mailto:vishug0708@gmail.com",
     icon: <Mail />,
   },
 ];
@@ -71,7 +71,7 @@ export default function Footer() {
         </a>
 
         <div className="footer-identity">
-          <strong>Vishu Gupta</strong>
+          <strong>Vishesh Gupta</strong>
           <span>Full-Stack Web Developer</span>
         </div>
       </div>
@@ -104,7 +104,7 @@ export default function Footer() {
       </div>
 
       <p className="footer-copyright">
-        © {year} Vishu Gupta. All rights reserved.
+        © {year} Vishesh Gupta. All rights reserved.
       </p>
 
       <button
