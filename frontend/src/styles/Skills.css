@@ -1,22 +1,20 @@
+/* Skills section — dark cinematic toolkit layout */
 .skills-page {
   position: relative;
   isolation: isolate;
   box-sizing: border-box;
   width: 100%;
   min-height: 560px;
-  padding: 80px 5% 40px;
+  padding: 48px 4.5% 26px;
   overflow: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-[data-theme="light"] .skills-page {
-  background: #ffffff;
-  color: #0f172a;
-}
-
-[data-theme="dark"] .skills-page {
   background: #080a0c;
   color: #f4f6f7;
+}
+
+.skills-page *,
+.skills-page *::before,
+.skills-page *::after {
+  box-sizing: border-box;
 }
 
 .skills-visual {
@@ -28,18 +26,17 @@
   height: 100%;
   min-height: 560px;
   background-image: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1800&q=85");
-  background-position: center right;
+  background-position: center;
   background-size: cover;
-  transition: opacity 0.4s ease;
-}
-
-[data-theme="light"] .skills-visual {
-  opacity: 0.85;
-}
-
-[data-theme="dark"] .skills-visual {
-  opacity: 0.65;
+  opacity: 0.72;
   filter: saturate(0.45) contrast(1.08);
+}
+
+.skills-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #080a0c 0%, rgba(8, 10, 12, 0.8) 14%, rgba(8, 10, 12, 0.12) 70%, rgba(8, 10, 12, 0.08) 100%), linear-gradient(0deg, #080a0c 0%, transparent 28%, rgba(8, 10, 12, 0.1) 100%);
 }
 
 .skills-shade {
@@ -47,273 +44,179 @@
   z-index: -1;
   inset: 0;
   pointer-events: none;
-}
-
-[data-theme="light"] .skills-shade {
-  background:
-    linear-gradient(
-      90deg,
-      #ffffff 0%,
-      #ffffff 38%,
-      rgba(255, 255, 255, 0.94) 50%,
-      rgba(255, 255, 255, 0.45) 72%,
-      transparent 100%
-    ),
-    linear-gradient(0deg, #ffffff 0%, transparent 12%);
-}
-
-[data-theme="dark"] .skills-shade {
-  background: linear-gradient(
-    90deg,
-    #080a0c 0%,
-    rgba(8, 10, 12, 0.98) 36%,
-    rgba(8, 10, 12, 0.5) 70%,
-    rgba(8, 10, 12, 0.14) 100%
-  );
+  background: linear-gradient(90deg, #080a0c 0%, rgba(8, 10, 12, 0.98) 34%, rgba(8, 10, 12, 0.5) 70%, rgba(8, 10, 12, 0.14) 100%);
 }
 
 .skills-container {
   position: relative;
   width: 100%;
-  max-width: var(--container-width, 1440px);
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 .skills-heading {
   max-width: 680px;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .skills-eyebrow {
-  margin: 0 0 10px;
-  font-size: 11px;
+  margin: 0 0 13px;
+  color: #c4cbd0;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: #2563eb;
+  letter-spacing: 2.3px;
 }
 
 .skills-heading h2 {
   margin: 0;
-  font-size: clamp(32px, 3vw, 44px);
-  font-weight: 700;
+  color: #f5f6f7;
+  font-size: clamp(30px, 3vw, 43px);
+  font-weight: 650;
   line-height: 1.12;
   letter-spacing: -1.5px;
 }
 
-[data-theme="light"] .skills-heading h2 {
-  color: #0a0e14;
-}
-
-[data-theme="dark"] .skills-heading h2 {
-  color: #f8fafc;
-}
-
 .skills-intro {
-  margin: 10px 0 0;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-[data-theme="light"] .skills-intro {
-  color: #64748b;
-}
-
-[data-theme="dark"] .skills-intro {
-  color: #94a3b8;
+  margin: 9px 0 0;
+  color: #b4bdc4;
+  font-size: 13px;
+  line-height: 1.7;
 }
 
 .skills-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 22px 0 24px;
+  gap: 7px;
+  margin: 20px 0 19px;
 }
 
 .skills-filter {
-  min-height: 36px;
-  padding: 0 18px;
-  border-radius: 9999px;
-  font-family: inherit;
-  font-size: 12px;
-  font-weight: 600;
+  min-height: 34px;
+  padding: 0 17px;
+  border: 1px solid #30383e;
+  border-radius: 999px;
+  background: rgba(12, 16, 19, 0.78);
+  color: #c4cbd0;
+  font: inherit;
+  font-size: 10px;
   cursor: pointer;
   transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-/* Light Mode Filter Pills */
-[data-theme="light"] .skills-filter {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  color: #475569;
-}
-
-[data-theme="light"] .skills-filter:hover {
-  background: #f1f5f9;
-  color: #0f172a;
+.skills-filter:hover {
+  border-color: #71818b;
+  color: #fff;
   transform: translateY(-1px);
 }
 
-[data-theme="light"] .skills-filter.is-active {
-  background: #2563eb;
-  border-color: #2563eb;
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+.skills-filter.is-active {
+  border-color: #f2f4f5;
+  background: #f2f4f5;
+  color: #101316;
 }
 
-/* Dark Mode Filter Pills */
-[data-theme="dark"] .skills-filter {
-  background: rgba(16, 21, 28, 0.85);
-  border: 1px solid #2d3748;
-  color: #cbd5e1;
-}
-
-[data-theme="dark"] .skills-filter:hover {
-  background: #1e293b;
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-[data-theme="dark"] .skills-filter.is-active {
-  background: #f8fafc;
-  border-color: #f8fafc;
-  color: #080a0c;
-}
-
-/* Skill Tiles Grid */
 .skills-tiles {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 108px));
-  gap: 12px;
-  max-width: 720px;
+  grid-template-columns: repeat(6, minmax(0, 104px));
+  gap: 10px;
+  max-width: 690px;
 }
 
 .skills-tile {
   display: flex;
-  min-height: 104px;
+  min-height: 98px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 14px 8px 12px;
-  border-radius: 12px;
-  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  gap: 9px;
+  padding: 13px 7px 11px;
+  border: 1px solid #222a30;
+  border-radius: 9px;
+  background: linear-gradient(145deg, rgba(20, 26, 30, 0.94), rgba(12, 16, 19, 0.96));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.13);
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
   animation: skills-tile-enter 0.35s ease both;
 }
 
 .skills-tile:hover {
   transform: translateY(-4px);
-}
-
-[data-theme="light"] .skills-tile {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-}
-
-[data-theme="light"] .skills-tile:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
-}
-
-[data-theme="dark"] .skills-tile {
-  background: linear-gradient(145deg, rgba(20, 26, 30, 0.94), rgba(12, 16, 19, 0.96));
-  border: 1px solid #222a30;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.13);
-}
-
-[data-theme="dark"] .skills-tile:hover {
-  border-color: #4a5568;
+  border-color: #647580;
+  background: linear-gradient(145deg, rgba(29, 39, 45, 0.97), rgba(13, 18, 21, 0.98));
 }
 
 .skills-tile-icon {
   display: grid;
+  width: 42px;
+  height: 42px;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  color: #b7d9ed;
 }
 
-[data-theme="light"] .skills-tile-icon {
-  color: #0f172a;
+.skills-tile:nth-child(6n + 2) .skills-tile-icon {
+  color: #e8d76f;
 }
 
-[data-theme="dark"] .skills-tile-icon {
-  color: #f1f5f9;
+.skills-tile:nth-child(6n + 3) .skills-tile-icon {
+  color: #80b9ff;
+}
+
+.skills-tile:nth-child(6n + 4) .skills-tile-icon {
+  color: #ef795d;
+}
+
+.skills-tile:nth-child(6n + 5) .skills-tile-icon {
+  color: #7cb5f0;
+}
+
+.skills-tile:nth-child(6n + 6) .skills-tile-icon {
+  color: #75c9e6;
 }
 
 .skills-tile h3 {
   margin: 0;
-  font-size: 11px;
+  color: #e6eaed;
+  font-size: 10px;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.35;
   text-align: center;
 }
 
-[data-theme="light"] .skills-tile h3 {
-  color: #1e293b;
-}
-
-[data-theme="dark"] .skills-tile h3 {
-  color: #e2e8f0;
-}
-
-/* Skills Bottom Note */
 .skills-bottom-note {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  margin-top: 36px;
-  padding-top: 18px;
-}
-
-[data-theme="light"] .skills-bottom-note {
-  border-top: 1px solid #e2e8f0;
-}
-
-[data-theme="dark"] .skills-bottom-note {
+  margin-top: 28px;
+  padding-top: 15px;
   border-top: 1px solid #252d32;
 }
 
 .skills-bottom-note span {
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  font-weight: 600;
-}
-
-[data-theme="light"] .skills-bottom-note span {
-  color: #64748b;
-}
-
-[data-theme="dark"] .skills-bottom-note span {
-  color: #94a3b8;
+  color: #9aa6ad;
+  font-size: 9px;
+  letter-spacing: 1.4px;
 }
 
 .skills-bottom-note a {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 10px;
+  gap: 9px;
+  color: #dce3e7;
+  font-size: 9px;
   font-weight: 700;
-  letter-spacing: 1.2px;
-  text-decoration: none !important;
-  transition: color 0.2s ease;
+  letter-spacing: 1.1px;
+  text-decoration: none;
+  transition: color 0.2s ease, gap 0.2s ease;
 }
 
-[data-theme="light"] .skills-bottom-note a {
-  color: #0f172a;
+.skills-bottom-note a:hover {
+  gap: 14px;
+  color: #fff;
 }
 
-[data-theme="light"] .skills-bottom-note a:hover {
-  color: #2563eb;
-}
-
-[data-theme="dark"] .skills-bottom-note a {
-  color: #e2e8f0;
-}
-
-[data-theme="dark"] .skills-bottom-note a:hover {
-  color: #60a5fa;
+.skills-bottom-note a span {
+  color: inherit;
+  font-size: 15px;
 }
 
 @keyframes skills-tile-enter {
@@ -327,25 +230,94 @@
   }
 }
 
-@media (max-width: 900px) {
-  .skills-visual {
-    width: 65%;
-    opacity: 0.35;
+@media (min-width: 1500px) {
+  .skills-page {
+    padding-right: 5%;
+    padding-left: 5%;
   }
 
   .skills-tiles {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 730px;
+    grid-template-columns: repeat(6, minmax(0, 110px));
+    gap: 11px;
+  }
+
+  .skills-tile {
+    min-height: 105px;
+  }
+}
+
+@media (max-width: 900px) {
+  .skills-page {
+    padding-top: 40px;
+  }
+
+  .skills-visual {
+    width: 70%;
+    opacity: 0.42;
+  }
+
+  .skills-shade {
+    background: linear-gradient(90deg, #080a0c 0%, rgba(8, 10, 12, 0.9) 55%, rgba(8, 10, 12, 0.4) 100%);
+  }
+
+  .skills-tiles {
+    grid-template-columns: repeat(4, minmax(0, 104px));
   }
 }
 
 @media (max-width: 560px) {
+  .skills-page {
+    min-height: 0;
+    padding: 34px 5% 22px;
+  }
+
+  .skills-visual {
+    width: 100%;
+    opacity: 0.22;
+  }
+
+  .skills-heading h2 {
+    font-size: clamp(29px, 8vw, 38px);
+    letter-spacing: -1px;
+  }
+
+  .skills-intro {
+    max-width: 340px;
+    font-size: 12px;
+  }
+
+  .skills-filters {
+    gap: 6px;
+  }
+
+  .skills-filter {
+    min-height: 32px;
+    padding: 0 12px;
+  }
+
   .skills-tiles {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    max-width: none;
+  }
+
+  .skills-tile {
+    min-height: 94px;
   }
 
   .skills-bottom-note {
-    flex-direction: column;
     align-items: flex-start;
+    flex-direction: column;
     gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-tile,
+  .skills-filter,
+  .skills-bottom-note a {
+    animation: none;
+    transition: none;
   }
 }

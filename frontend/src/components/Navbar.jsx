@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ArrowRight, Menu, Moon, Sun, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import "./Navbar.css";
 
 const navLinks = [
@@ -11,18 +11,30 @@ const navLinks = [
   { name: "Contact", id: "contact" },
 ];
 
-export default function Navbar({ theme = "light", toggleTheme }) {
+export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [onHome, setOnHome] = useState(true);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+    const updateNavbar = () => {
+      const home = document.getElementById("home");
+      if (!home) {
+        setOnHome(false);
+        return;
+      }
+
+      const homeBottom = home.getBoundingClientRect().bottom;
+      setOnHome(window.scrollY < 40 && homeBottom > 100);
     };
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    updateNavbar();
+    window.addEventListener("scroll", updateNavbar, { passive: true });
+    window.addEventListener("resize", updateNavbar);
+
+    return () => {
+      window.removeEventListener("scroll", updateNavbar);
+      window.removeEventListener("resize", updateNavbar);
+    };
   }, []);
 
   const scrollToSection = (id) => {
@@ -48,74 +60,60 @@ export default function Navbar({ theme = "light", toggleTheme }) {
   };
 
   return (
-    <header className={`site-navbar ${scrolled ? "site-navbar-scrolled" : "site-navbar-top"}`}>
-      <div className="navbar-container">
-        <a
-          href="#home"
-          className="navbar-logo"
-          aria-label="VG - Home"
-          onClick={(event) => {
-            event.preventDefault();
-            scrollToSection("home");
-          }}
-        >
-          VG
-        </a>
+    <header className={`site-navbar ${onHome ? "site-navbar-home" : "site-navbar-scrolled"}`}>
+      <a
+        href="#home"
+        className="navbar-logo"
+        aria-label="VG - Home"
+        onClick={(event) => {
+          event.preventDefault();
+          scrollToSection("home");
+        }}
+      >
+        VG<span>.</span>
+      </a>
 
-        <nav
-          id="main-navigation"
-          className={`navbar-links ${menuOpen ? "navbar-links-open" : ""}`}
-          aria-label="Main navigation"
-        >
-          {navLinks.map((link) => (
-            <a
-              key={link.id}
-              href={`#${link.id}`}
-              onClick={(event) => {
-                event.preventDefault();
-                scrollToSection(link.id);
-              }}
-            >
-              {link.name}
-            </a>
-          ))}
-        </nav>
-
-        <div className="navbar-right-group">
-          <button
-            type="button"
-            className="navbar-theme-toggle"
-            onClick={toggleTheme}
-            aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
-            title={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
-          >
-            {theme === "light" ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
-
+      <nav
+        id="main-navigation"
+        className={`navbar-links ${menuOpen ? "navbar-links-open" : ""}`}
+        aria-label="Main navigation"
+      >
+        {navLinks.map((link) => (
           <a
-            href="#contact"
-            className="navbar-cta"
+            key={link.id}
+            href={`#${link.id}`}
             onClick={(event) => {
               event.preventDefault();
-              scrollToSection("contact");
+              scrollToSection(link.id);
             }}
           >
-            <span>Let's Talk</span>
-            <ArrowRight size={15} aria-hidden="true" />
+            {link.name}
           </a>
+        ))}
+      </nav>
 
-          <button
-            className="navbar-menu-button"
-            type="button"
-            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-            aria-expanded={menuOpen}
-            aria-controls="main-navigation"
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </div>
+      <a
+        href="#contact"
+        className="navbar-cta"
+        onClick={(event) => {
+          event.preventDefault();
+          scrollToSection("contact");
+        }}
+      >
+        Let's Talk
+        <ArrowUpRight size={16} aria-hidden="true" />
+      </a>
+
+      <button
+        className="navbar-menu-button"
+        type="button"
+        aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+        aria-expanded={menuOpen}
+        aria-controls="main-navigation"
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        {menuOpen ? <X size={22} /> : <Menu size={22} />}
+      </button>
     </header>
   );
 }

@@ -5,37 +5,37 @@ import "../styles/Journey.css";
 const journeyItems = [
   {
     year: "2024",
-    title: "Started BCA (Hons)",
-    description: "Beginning my journey in computer applications.",
+    title: "Started My Tech Journey",
+    description: "Started exploring programming fundamentals and learning how websites work behind the scenes.",
     icon: BookOpen,
   },
   {
-    year: "2024",
+    year: "2025",
     title: "Explored Web Development",
-    description: "Learned HTML, CSS, JavaScript and started building small projects.",
+    description: "Learned HTML, CSS and JavaScript, and began building small projects.",
     icon: Code2,
   },
   {
-    year: "2025",
-    title: "Built Major Projects",
-    description: "Developed hostel management system and explored AI and automation projects.",
+    year: "2026",
+    title: "Building Real-World Projects",
+    description: "Developing a Hostel Management System and exploring AI, automation and full-stack applications.",
     icon: Rocket,
   },
   {
     year: "2026",
     title: "Deepening My Skills",
-    description: "Focusing on full-stack development, 3D web experiences and real-world problem solving.",
+    description: "Improving React, Node.js, Express.js and MySQL skills while building responsive web experiences.",
     icon: Code2,
   },
   {
     year: "2028",
     title: "BCA Graduation (Expected)",
-    description: "Continuing to learn and build bigger, better projects.",
+    description: "Continuing to learn, solve real-world problems and build bigger, better projects.",
     icon: Flag,
   },
 ];
 
-export default function Journey({ theme = "light" }) {
+export default function Journey() {
   return (
     <section id="journey" className="journey-page page-section">
       <div className="journey-background" aria-hidden="true" />
@@ -57,11 +57,16 @@ export default function Journey({ theme = "light" }) {
                 <span className="journey-marker" aria-hidden="true" />
                 <span className="journey-year">{item.year}</span>
                 <span className="journey-item-icon" aria-hidden="true">
-                  <ItemIcon size={14} strokeWidth={2} />
+                  <ItemIcon size={15} strokeWidth={1.8} />
                 </span>
                 <div className="journey-item-content">
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
+                  {index === 2 && (
+                    <a href="#projects" className="journey-item-link">
+                      Explore projects <ArrowUpRight size={14} />
+                    </a>
+                  )}
                 </div>
               </article>
             );
