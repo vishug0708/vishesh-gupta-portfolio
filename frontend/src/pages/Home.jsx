@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { ArrowDown, ArrowRight, Play, X } from "lucide-react";
+import { FaGithub, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import "../styles/Home.css";
 
-export default function Home() {
+const socialLinks = [
+  { name: "GitHub", href: "https://github.com/vishug0708", icon: FaGithub },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/visheshgupta07", icon: FaLinkedin },
+  { name: "Instagram", href: "https://www.instagram.com/vishug_7", icon: FaInstagram },
+  { name: "YouTube", href: "https://youtube.com", icon: FaYoutube },
+];
+
+export default function Home({ theme = "light" }) {
   const [introOpen, setIntroOpen] = useState(false);
 
   useEffect(() => {
@@ -21,49 +29,82 @@ export default function Home() {
   return (
     <section className="home-page" id="home">
       <div className="hero-background-image" />
-
       <div className="hero-overlay" />
 
-      <div className="hero-copy">
-        <p className="hero-eyebrow">Hi, I'm</p>
+      <div className="hero-container">
+        <div className="hero-copy">
+          <p className="hero-eyebrow">Hi, I'm</p>
 
-        <h1>Vishesh Gupta</h1>
+          <h1 className="hero-name">Vishesh Gupta</h1>
 
-        <h2>
-          Building Digital
-          <br />
-          Experiences.
-        </h2>
+          <h2 className="hero-title">
+            Building{" "}
+            <span className="hero-highlight">
+              Digital
+              <svg
+                className="hero-underline-swoosh"
+                viewBox="0 0 160 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 11C40 4 95 3 156 12"
+                  stroke="#2563eb"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
+            <br />
+            Experiences.
+          </h2>
 
-        <p className="hero-description">
-          Full-stack developer exploring the intersection
-          <br className="desktop-break" />
-          of engineering, design, and interactive experiences.
-        </p>
+          <p className="hero-description">
+            Full-stack developer exploring the intersection
+            <br className="desktop-break" />
+            of engineering, design, and interactive experiences.
+          </p>
 
-        <div className="hero-actions">
-          <a href="#projects" className="hero-button hero-button-light">
-            Explore My Work
-            <ArrowRight size={20} />
+          <div className="hero-actions">
+            <a href="#projects" className="hero-button hero-button-primary">
+              <span>Explore My Work</span>
+              <ArrowRight size={17} />
+            </a>
+
+            <a href="#contact" className="hero-button hero-button-secondary">
+              <span>Contact Me</span>
+            </a>
+          </div>
+
+          <a href="#about" className="hero-scroll">
+            <span className="hero-scroll-icon">
+              <ArrowDown size={15} />
+            </span>
+            <span>Scroll to explore</span>
           </a>
+        </div>
 
-          <button
-            type="button"
-            className="hero-button hero-button-outline"
-            onClick={() => setIntroOpen(true)}
-          >
-            <Play size={17} fill="currentColor" />
-            Watch Intro
-          </button>
+        <div className="hero-social-strip" aria-label="Social links">
+          <span className="hero-social-label">Follow</span>
+          {socialLinks.map((social) => {
+            const SocialIcon = social.icon;
+            return (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={social.name}
+                title={social.name}
+                className="hero-social-link"
+              >
+                <SocialIcon size={16} />
+              </a>
+            );
+          })}
         </div>
       </div>
-
-      <a href="#about" className="hero-scroll">
-        <span className="hero-scroll-icon">
-          <ArrowDown size={17} />
-        </span>
-        <span>Scroll to explore</span>
-      </a>
 
       {introOpen && (
         <div

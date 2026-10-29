@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import {
@@ -17,11 +16,12 @@ const projects = [
   {
     number: "01",
     title: "Hostel Management System",
-    status: "In Development",
+    status: "Completed",
+    badgeType: "completed",
     category: "FULL-STACK APPLICATION",
     description:
-      "A hostel administration platform for students, room allocation, fees, leave requests and management.",
-    technologies: ["React", "Node.js", "Express.js", "MySQL"],
+      "Full hostel management system with student, room, fees, leave, and admin modules.",
+    technologies: ["React", "Node.js", "MySQL"],
     image: "/images/projects/hostel-management.png",
     theme: "hostel",
     liveUrl: "https://hostel-management-frontend-phi.vercel.app",
@@ -39,20 +39,21 @@ const projects = [
     ],
     audience: "Hostel administrators, students and hostel staff",
     stageNote:
-      "The project is under development. Features and deployment availability may vary.",
+      "The project is actively hosted. Features and deployment availability may vary.",
   },
   {
     number: "02",
     title: "AI Cricket Recap Generator",
-    status: "Planned",
+    status: "AI Development",
+    badgeType: "ai",
     category: "AI / SPORTS MEDIA",
     description:
-      "Personalized cricket recaps featuring match highlights, player statistics and memorable moments.",
-    technologies: ["React", "Python", "AI", "Media Processing"],
+      "Personalized World Cup recaps using sports data, AI summaries, speech processing, and video editing.",
+    technologies: ["React", "AI", "Python"],
     image: "/images/projects/cricket-recap.png",
     theme: "cricket",
     liveUrl: "",
-    githubUrl: "",
+    githubUrl: "https://github.com/vishug0708",
     motive:
       "Help cricket fans catch up on important match moments without watching the entire match.",
     purpose:
@@ -66,20 +67,21 @@ const projects = [
     ],
     audience: "Cricket fans, sports communities and content creators",
     stageNote:
-      "This project is planned. These are intended features, not claims of implemented functionality.",
+      "This project is planned/under development. Features shown are intended capabilities.",
   },
   {
     number: "03",
     title: "Railway Booking Website",
     status: "Planned",
+    badgeType: "planned",
     category: "WEB APPLICATION",
     description:
-      "A modern railway booking experience with train search, journey details and passenger booking.",
-    technologies: ["React", "Node.js", "Express.js", "MySQL"],
+      "A planned project for railway search, seat availability, and booking workflows.",
+    technologies: ["React", "Node.js", "MySQL"],
     image: "/images/projects/railway-booking.png",
     theme: "railway",
     liveUrl: "",
-    githubUrl: "",
+    githubUrl: "https://github.com/vishug0708",
     motive:
       "Design a straightforward digital journey for searching trains and managing booking information.",
     purpose:
@@ -93,20 +95,21 @@ const projects = [
     ],
     audience: "Travellers and users exploring online railway booking",
     stageNote:
-      "This project is planned. Live train data and actual ticket booking are not available unless implemented and connected to an authorized service.",
+      "This project is planned. Live train data and ticket booking workflows are conceptual.",
   },
   {
     number: "04",
     title: "Face Recognition Attendance",
     status: "Concept",
+    badgeType: "concept",
     category: "COMPUTER VISION",
     description:
-      "Exploring automated attendance using face recognition and identity verification.",
+      "Exploring attendance automation using computer vision and real-time face recognition.",
     technologies: ["Python", "OpenCV", "AI"],
     image: "/images/projects/face-attendance.png",
     theme: "attendance",
     liveUrl: "",
-    githubUrl: "",
+    githubUrl: "https://github.com/vishug0708",
     motive:
       "Explore whether computer vision can help record attendance more efficiently in suitable environments.",
     purpose:
@@ -120,7 +123,7 @@ const projects = [
     ],
     audience: "Educational institutions and developers exploring computer vision",
     stageNote:
-      "This is a concept project. Recognition accuracy, attendance recording and privacy safeguards require implementation and testing.",
+      "This is a concept project exploring facial detection models and attendance logging.",
   },
 ];
 
@@ -157,7 +160,7 @@ function ProjectDetails({ project, onClose }) {
             <p className="project-modal-eyebrow">
               PROJECT / {project.number} · {project.category}
             </p>
-            <span className={`project-status status-${project.theme}`}>
+            <span className={`project-status badge-${project.badgeType || project.theme}`}>
               {project.status}
             </span>
           </div>
@@ -214,11 +217,13 @@ function ProjectDetails({ project, onClose }) {
           <div className="project-detail-section">
             <h3>
               <Code2 size={18} />
-              Technologies Used / Planned
+              Technologies
             </h3>
             <div className="project-technologies project-modal-tech">
               {project.technologies.map((technology) => (
-                <span key={technology}>{technology}</span>
+                <span key={technology} className="project-tech-pill">
+                  {technology}
+                </span>
               ))}
             </div>
           </div>
@@ -227,17 +232,31 @@ function ProjectDetails({ project, onClose }) {
             <strong>Project status:</strong> {project.stageNote}
           </div>
 
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-visit-button project-modal-visit"
-            >
-              Visit Live Website
-              <ArrowUpRight size={16} />
-            </a>
-          )}
+          <div className="project-modal-actions">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-visit-button"
+              >
+                Visit Live Website
+                <ArrowUpRight size={16} />
+              </a>
+            )}
+
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-github-modal-link"
+              >
+                View on GitHub
+                <ArrowUpRight size={16} />
+              </a>
+            )}
+          </div>
         </div>
       </section>
     </div>,
@@ -249,6 +268,10 @@ function ProjectCard({ project, onViewDetails }) {
   return (
     <article className={`project-card project-card-${project.theme}`}>
       <div className="project-image-wrap">
+        <span className={`project-status badge-${project.badgeType || project.theme}`}>
+          {project.status}
+        </span>
+
         <img
           className="project-image"
           src={project.image}
@@ -261,39 +284,32 @@ function ProjectCard({ project, onViewDetails }) {
             );
           }}
         />
-
-        <span className="project-number">{project.number}</span>
-        <span className="project-image-category">{project.category}</span>
       </div>
 
       <div className="project-card-body">
-        <span className={`project-status status-${project.theme}`}>
-          {project.status}
-        </span>
-
         <h3>{project.title}</h3>
 
         <p className="project-description">{project.description}</p>
 
         <div className="project-technologies">
           {project.technologies.map((technology) => (
-            <span key={technology}>{technology}</span>
+            <span key={technology} className="project-tech-pill">
+              {technology}
+            </span>
           ))}
         </div>
 
         <div className="project-card-footer">
-          <span>PROJECT / {project.number}</span>
-
           {project.liveUrl ? (
             <div className="project-card-actions">
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="project-action-button project-live-button"
+                className="project-action-link"
               >
-                Live Demo
-                <ArrowUpRight size={15} />
+                <span>Live Demo</span>
+                <ArrowRight size={14} />
               </a>
 
               {project.githubUrl && (
@@ -301,21 +317,21 @@ function ProjectCard({ project, onViewDetails }) {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="project-action-button project-github-button"
+                  className="project-action-link"
                 >
-                  GitHub
-                  <ArrowUpRight size={15} />
+                  <span>GitHub</span>
+                  <ArrowRight size={14} />
                 </a>
               )}
             </div>
           ) : (
             <button
               type="button"
-              className="project-details-button"
+              className="project-action-link project-details-btn"
               onClick={() => onViewDetails(project)}
             >
-              View Details
-              <ArrowUpRight size={15} />
+              <span>View Details</span>
+              <ArrowRight size={14} />
             </button>
           )}
         </div>
@@ -324,11 +340,11 @@ function ProjectCard({ project, onViewDetails }) {
   );
 }
 
-export default function Projects() {
+export default function Projects({ theme = "light" }) {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section className="projects-page" id="projects">
+    <section className="projects-page page-section" id="projects">
       <div className="projects-container">
         <div className="projects-heading">
           <div className="projects-heading-main">
@@ -341,8 +357,8 @@ export default function Projects() {
           </div>
 
           <a href="#contact" className="projects-view-all">
-            View All Projects
-            <ArrowRight size={16} />
+            <span>View All Projects</span>
+            <ArrowRight size={15} />
           </a>
         </div>
 
@@ -354,14 +370,6 @@ export default function Projects() {
               onViewDetails={setSelectedProject}
             />
           ))}
-        </div>
-
-        <div className="projects-bottom">
-          <span>04 SELECTED PROJECTS</span>
-          <a href="#skills">
-            EXPLORE MY SKILLS
-            <ExternalLink size={14} />
-          </a>
         </div>
       </div>
 
